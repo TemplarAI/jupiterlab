@@ -1,0 +1,10 @@
+version: "3"
+services:
+  jupiterlab:
+    image: owodunni/jupiterlab
+    ports:
+      - "8888"
+    network_mode: host
+    restart: always
+    volumes:
+      - notebooks-data:/usr/local/bin/jupiterlab/notebooks

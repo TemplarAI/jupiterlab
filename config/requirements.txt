@@ -1,0 +1,6 @@
+tensorflow==1.15
+gym
+pandas
+stable-baselines
+opencv-python
+matplotlib

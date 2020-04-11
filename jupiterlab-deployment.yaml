@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert --volumes hostPath
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: jupiterlab
+  name: jupiterlab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: jupiterlab
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert --volumes hostPath
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: jupiterlab
+    spec:
+      containers:
+      - image: owodunni/jupiterlab
+        imagePullPolicy: ""
+        name: jupiterlab
+        ports:
+        - containerPort: 8888
+        resources: {}
+        volumeMounts:
+        - mountPath: /usr/local/bin/jupiterlab/notebooks
+          name: notebooks-data
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes:
+      - hostPath:
+          path: /home/owodunni/prog/jupiterlab/notebooks
+        name: notebooks-data
+status: {}
