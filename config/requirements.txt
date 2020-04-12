@@ -4,3 +4,4 @@ pandas
 stable-baselines
 opencv-python
 matplotlib
+ipympl

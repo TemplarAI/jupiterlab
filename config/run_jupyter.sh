@@ -27,4 +27,4 @@ cat > /usr/local/share/jupyter/kernels/python3/kernel.json <<EOKERN
 EOKERN
 
 mkdir notebooks
-jupyter lab
+xvfb-run -s "-screen 0 600x400x24" jupyter lab
